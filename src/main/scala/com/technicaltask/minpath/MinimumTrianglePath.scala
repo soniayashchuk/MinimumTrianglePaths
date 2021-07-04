@@ -10,7 +10,8 @@ object MinimumTrianglePath {
     println("This program is going to find minimum path of the triangle provided.\n" +
       "You can either provide file to read values\n" +
       "or use stdIn to insert values manually.\n" +
-      "Please, print `f` for file or `m` to manual entering values")
+      "Please, print `f` for file or `m` to manual entering values\n" +
+      "Note: if you choose manual typing, use empty line to mark completing of input.")
     val triangle = readAnswerAndReadInput
     if ( InputValidator.validateInput(triangle) ) {
       val minPath = PathFinder.findMinPath(triangle)
@@ -33,7 +34,7 @@ object MinimumTrianglePath {
   }
 
   private def printResult(path: Path): Unit = {
-    println(s"Minimal path is: ${path.edges.map(_.toString).concat(" + ")} = ${path.weight}" )
+    println(s"Minimal path is: ${path.edges.map(_.toString).mkString(" + ")} = ${path.weight}" )
   }
 
 }
